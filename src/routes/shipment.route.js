@@ -1,12 +1,13 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
 
-const getAll = require("../controllers/getAll");
-const getById = require("../controllers/getById");
-const getByUser = require("../controllers/getByUser");
-const create = require("../controllers/create");
-const update = require("../controllers/update");
-const deleteS = require("../controllers/delete");
+import getAll from "../controllers/getAll.js";
+import getById from "../controllers/getById.js";
+import getByUser from "../controllers/getByUser.js";
+import create from "../controllers/create.js";
+import update from "../controllers/update.js";
+import deleteS from "../controllers/delete.js";
+
+const router = Router();
 
 // Ruta para obtener todos los envíos
 router.get("/", getAll);
@@ -21,4 +22,4 @@ router.patch("/update/:id", update);
 
 router.delete("/:id", deleteS);
 
-module.exports = router;
+export default router;

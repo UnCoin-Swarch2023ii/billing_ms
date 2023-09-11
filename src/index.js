@@ -1,9 +1,13 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-require('dotenv').config();
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
 
-const Database = require("./config/database");
+import shipmentRoutes from "./routes/shipment.route.js";
+import cronJob from './services/cronJob.js';
+
+import Database from "./config/database.js";
+
+dotenv.config();
 
 // Crear una instancia de Express
 const app = express();
@@ -19,7 +23,6 @@ app.use(cors());
 app.use(express.json()); // Parsear solicitudes JSON
 
 // Definir rutas
-const shipmentRoutes = require('./routes/shipment.route.js');
 app.use('/shipments', shipmentRoutes);
 
 // Manejar rutas no encontradas
@@ -27,9 +30,7 @@ app.use((req, res) => {
   res.status(404).json({ error: 'Ruta no encontrada' });
 });
 
-
 // Iniciar el servidor
 app.listen(port, () => {
   console.log(`Servidor en funcionamiento en el puerto http://localhost:${port}`);
 });
-

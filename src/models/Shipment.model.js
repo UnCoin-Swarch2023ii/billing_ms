@@ -1,8 +1,4 @@
-//import { Schema, model } from 'mongoose';
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const model = mongoose.model;
-
+import { Schema, model } from 'mongoose';
 
 const shipmentSchema = new Schema({
   userId: {
@@ -25,4 +21,4 @@ const shipmentSchema = new Schema({
 
 const Shipment = model('Shipment', shipmentSchema);
 
-module.exports = Shipment;
+export default Shipment;

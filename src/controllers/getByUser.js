@@ -1,4 +1,4 @@
-const ShipmentModel = require("../models/Shipment.model");
+import ShipmentModel from "../models/Shipment.model.js";
 
 const getByUser = async (req, res) => {
   try {
@@ -13,4 +13,4 @@ const getByUser = async (req, res) => {
   }
 };
 
-module.exports = getByUser;
+export default getByUser;

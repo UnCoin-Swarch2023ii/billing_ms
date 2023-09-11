@@ -1,4 +1,4 @@
-const ShipmentModel = require("../models/Shipment.model");
+import ShipmentModel from "../models/Shipment.model.js";
 
 const getShipmentById = async (req, res) => {
   try {
@@ -12,4 +12,4 @@ const getShipmentById = async (req, res) => {
   }
 };
 
-module.exports = getShipmentById;
+export default getShipmentById;

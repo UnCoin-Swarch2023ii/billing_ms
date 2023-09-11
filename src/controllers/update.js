@@ -1,4 +1,4 @@
-const ShipmentModel = require("../models/Shipment.model");
+import ShipmentModel from "../models/Shipment.model.js";
 
 const updateShipment = async (req, res) => {
   try {
@@ -25,4 +25,4 @@ const updateShipment = async (req, res) => {
   }
 };
 
-module.exports = updateShipment;
+export default updateShipment;

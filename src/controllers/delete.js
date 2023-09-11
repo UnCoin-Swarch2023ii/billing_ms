@@ -1,4 +1,4 @@
-const ShipmentModel = require("../models/Shipment.model");
+import ShipmentModel from "../models/Shipment.model.js";
 
 const deleteShipment = async (req, res) => {
   try {
@@ -24,4 +24,4 @@ const deleteShipment = async (req, res) => {
   }
 };
 
-module.exports = deleteShipment;
+export default deleteShipment;
