@@ -1,0 +1,24 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - '${DB_PORT}:27017'
+    logging:
+      driver: none
+
+  backend:
+    depends_on:
+      - mongo
+    build: .
+    container_name: backend
+    restart: always
+    ports:
+      - 4000:4000
+    environment:
+      - PORT=${PORT}
+      - DB_PORT=${DB_PORT}
+      - MONGO_URI=${MONGO_URI}
+    links:
+      - mongo
