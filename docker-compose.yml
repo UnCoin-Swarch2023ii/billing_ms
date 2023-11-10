@@ -1,18 +1,18 @@
-version: '3'
+version: "3"
 services:
   mongo:
     image: mongo:latest
     container_name: mongo
     ports:
-      - '${DB_PORT}:27017'
+      - "${DB_PORT}:27017"
     logging:
       driver: none
 
-  backend:
+  billing_ms:
     depends_on:
       - mongo
-    build: .
-    container_name: backend
+    image: guaca31/uncoin_billing
+    container_name: billing_ms
     restart: always
     ports:
       - 4000:4000
